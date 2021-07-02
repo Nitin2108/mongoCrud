@@ -1,10 +1,14 @@
-module.exports = (app) => {
+const express = require('express');
+const Router = express.Router();
+
 
 const notes = require('../controller/note.controller')
-app.post('/note',notes.create);
-app.get('/notes',notes.findAll);
-app.get('/noteById/:id',notes.findById)
-app.put('/note/:id',notes.update)
-app.delete('/note/:id',notes.delete)
+Router.post('/',notes.create);
+Router.get('/',notes.findAll);
+Router.get('/noteById/:id',notes.findById)
+Router.put('/:id',notes.update)
+Router.delete('/:id',notes.delete)
 
-}
+
+
+module.exports = Router;

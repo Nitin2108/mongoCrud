@@ -3,6 +3,7 @@ const express = require('express');
 const app = express();
 const dbConfig = require('./config/database.config');
 const mongoose = require('mongoose');
+const notes = require('./routes/note.routes')
 
 mongoose.Promise = global.Promise;
 
@@ -19,9 +20,9 @@ mongoose.connect(dbConfig.url, {
 
 
 
-require('./routes/note.routes')(app);
+app.use('/notes',notes);
 app.get('/',function(req,res){
-    res.send("Get request");
+    res.send("hello");
 })
 
 
