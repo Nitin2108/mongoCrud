@@ -1,3 +1,3 @@
 module.exports = {
-    url: 'mongo connection url'
+    url: 'mongo url'
 }
